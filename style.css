@@ -1,0 +1,73 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    background-color: lightsalmon;
+}
+
+.box {
+    border: solid 1px black;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.box:hover {
+    opacity: 95%;
+    background-color: lightgray;
+    transition: 0.3s;
+}
+
+.tic-tac-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.row-1,
+.row-2,
+.row-3 {
+    display: block;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.X {
+    background-image: url("./images/small-cross.png");
+    background-size: contain;
+}
+
+.O {
+    background-image: url("./images/small-circle.png");
+    background-size: contain;
+}
+
+.footer,
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.State {
+    padding-top: 45px;
+}
+
+.re-start {
+    position: relative;
+    top: 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: gray;
+    width: 70px;
+    height: 30px;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.vis {
+    visibility: visible;
+}
