@@ -18,22 +18,16 @@ const verticalCheck = () => {
     const box7 = boxes[7].classList.contains(currentTurn)
     const box8 = boxes[8].classList.contains(currentTurn)
     if (box0 && box1 && box2) {
-        gameState.innerText = `${currentTurn} won!`
-        reStart.classList.add("vis")
         gameEnded = true
-        return true
     } else if (box3 && box4 && box5) {
-        gameState.innerText = `${currentTurn} won!`
-        reStart.classList.add("vis")
         gameEnded = true
-        return true
     } else if (box6 && box7 && box8) {
+        gameEnded = true
+    }
+    if (gameEnded === true) {
         gameState.innerText = `${currentTurn} won!`
         reStart.classList.add("vis")
-        gameEnded = true
-        return true
     }
-    return false
 }
 
 const horizontalCheck = () => {
@@ -47,22 +41,16 @@ const horizontalCheck = () => {
     const box7 = boxes[7].classList.contains(currentTurn)
     const box8 = boxes[8].classList.contains(currentTurn)
     if (box0 && box3 && box6) {
-        gameState.innerText = `${currentTurn} won!`
-        reStart.classList.add("vis")
         gameEnded = true
-        return true
     } else if (box1 && box4 && box7) {
-        gameState.innerText = `${currentTurn} won!`
-        reStart.classList.add("vis")
         gameEnded = true
-        return true
     } else if (box2 && box5 && box8) {
+        gameEnded = true
+    }
+    if (gameEnded === true) {
         gameState.innerText = `${currentTurn} won!`
         reStart.classList.add("vis")
-        gameEnded = true
-        return true
     }
-    return false
 }
 
 const diagonalCheck = () => {
@@ -72,17 +60,14 @@ const diagonalCheck = () => {
     const box6 = boxes[6].classList.contains(currentTurn)
     const box8 = boxes[8].classList.contains(currentTurn)
     if (box0 && box4 && box8) {
-        gameState.innerText = `${currentTurn} won!`
-        reStart.classList.add("vis")
         gameEnded = true
-        return true
     } else if (box2 && box4 && box6) {
+        gameEnded = true
+    }
+    if (gameEnded === true) {
         gameState.innerText = `${currentTurn} won!`
         reStart.classList.add("vis")
-        gameEnded = true
-        return true
     }
-    return false
 }
 
 const checkStates = () => {
@@ -97,7 +82,6 @@ const draw = () => {
     }
     return true
 }
-// debugger
 
 const showActions = () => {
     boxes.forEach(box => {
@@ -118,7 +102,7 @@ const showActions = () => {
                     swapingTurns = false
                     currentTurn = x_Class
                 }
-                if (checkStates()) {
+                if (checkStates() || gameEnded === true) {
                     return;
                 } else if (draw()) {
                     gameState.innerText = `Draw!`
